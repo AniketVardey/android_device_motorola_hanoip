@@ -182,6 +182,3 @@ BOARD_RAMDISK_USE_LZMA := true
 # Dimensions
 TW_Y_OFFSET := 115
 TW_H_OFFSET := -115
-
-PB_DISABLE_DEFAULT_DM_VERITY := true
-PB_TORCH_PATH := /sys/class/leds/flashlight
