@@ -182,3 +182,137 @@ BOARD_RAMDISK_USE_LZMA := true
 # Dimensions
 TW_Y_OFFSET := 115
 TW_H_OFFSET := -115
+
+################### ############################################
+# MANDATORY FLAGS # These flags HAVE TO be set/changed by you! #
+################### ############################################
+
+# Device codename
+# Default (if not set): N/A
+SHRP_DEVICE_CODE := hanoip
+
+# Path of your SHRP device tree
+# Replace <device-brand> with the device brand name
+# (SHRP_DEVICE_CODE will expand to the above variable so check if that is correct)
+SHRP_PATH := device/motorola/hanoip
+
+# Maintainer name
+# Default (if not set): N/A
+SHRP_MAINTAINER := Sajid AKA Satoru
+
+# Recovery Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_REC_TYPE := Treble
+
+# Device Type (for "About" section only)
+# Default (if not set): N/A
+SHRP_DEVICE_TYPE := A/B
+
+# Your device's recovery path, dont use blindly
+# Default (if not set): N/A
+SHRP_REC := /dev/block/bootdevice/by-name/vendor_boot
+
+# Use this flag only if SHRP_REC is set
+# Default (if not set): N/A
+SHRP_HAS_RECOVERY_PARTITION := false
+
+# Use this flag only if your device is A/B or Virtual A/B.
+# Default (if not set): N/A
+SHRP_AB := true
+
+################### ################################################################################
+# IMPORTANT FLAGS # These are usually good to check - at least if the defaults are what you expect #
+################### ################################################################################
+
+# Emergency DownLoad mode (0 = no EDL mode, 1 = EDL mode available)
+# Default (if not set): 0
+SHRP_EDL_MODE := 1
+
+# Internal storage path
+# Default (if not set): /sdcard
+SHRP_INTERNAL := /sdcard
+
+# External SDcard path
+# Default (if not set): /
+SHRP_EXTERNAL := /external_sd
+
+# USB OTG path
+# Default (if not set): /
+SHRP_OTG := /usb_otg
+
+# Flashlight: (0 = disable, 1 = enable)
+# Default (if not set): 0
+SHRP_FLASH := 1
+
+
+################################## ##############################################
+# SHRP DEFAULT ADDONS - OPTIONAL # Default SHRP addon behavior - fully optional #
+################################## ##############################################
+
+# SHRP comes with a set of default addons.
+# This section allows to disable some or all of them, e.g. to save a little space
+# or when a device does not support / need them.
+
+#####
+# DEFAULT behavior if neither
+# - SHRP_SKIP_DEFAULT_ADDON_X nor
+# - INC_IN_REC_ADDON_X
+# Are set:
+# The addon will be added to the build and saved into the internal storage
+# on flashing (i.e: $(SHRP_INTERNAL)/SHRP/addons)
+#
+# SHRP_SKIP_DEFAULT_ADDON_X := true
+# --> will not add this addon
+#
+# INC_IN_REC_ADDON_X := true
+# --> will add this addon & store it within the recovery ramdisk (i.e. NOT in the internal storage!)
+#
+# If SHRP_SKIP_DEFAULT_ADDON_X is set INC_IN_REC_ADDON_X will be ignored!
+#
+######
+
+# Addon - Substratum Overlay (OMS -Normal- disabler)
+# Default (if not set) is not skipping this addon (i.e. add it)
+# Ensure you understood the above note on the default behavior!
+SHRP_SKIP_DEFAULT_ADDON_1 := true
+# Default (if not set) is NOT adding it to the ramdisk but internal storage.
+# To store this addon into the recovery ramdisk instead set to "true" here.
+# Ensure you understood the above note on the default behavior!
+INC_IN_REC_ADDON_1 := true
+
+# Addon - Substratum Overlay (OMS -legacy- disabler)
+# Default (if not set) is not skipping this addon (i.e. add it)
+# Ensure you understood the above note on the default behavior!
+SHRP_SKIP_DEFAULT_ADDON_2 := true
+# Default (if not set) is NOT adding it to the ramdisk but internal storage.
+# To store this addon into the recovery ramdisk instead set to "true" here.
+# Ensure you understood the above note on the default behavior!
+INC_IN_REC_ADDON_2 := true
+
+# Addon - Clear Fingerprint (remove fingerprint lock from system)
+# Default (if not set) is not skipping this addon (i.e. add it)
+# Ensure you understood the above note on the default behavior!
+SHRP_SKIP_DEFAULT_ADDON_3 := true
+# Default (if not set) is NOT adding it to the ramdisk but internal storage.
+# To store this addon into the recovery ramdisk instead set to "true" here.
+# Ensure you understood the above note on the default behavior!
+INC_IN_REC_ADDON_3 := true
+
+# Addon - Force Encryption (remove force encryption from your device)
+# Default (if not set) is not skipping this addon (i.e. add it)
+# Ensure you understood the above note on the default behavior!
+SHRP_SKIP_DEFAULT_ADDON_4 := true
+# Default (if not set) is NOT adding it to the ramdisk but internal storage.
+# To store this addon into the recovery ramdisk instead set to "true" here.
+
+INC_IN_REC_ADDON_3 := true
+
+# Default (if not set) is NOT adding it to the ramdisk but internal storage.
+# To store magisk zip into the recovery ramdisk instead set to "true" here.
+# Ensure you understood the above note on the default behavior!
+INC_IN_REC_MAGISK := true
+
+# Default (if not set) will show magisk root and unroot option inside the recovery.
+# To hide the prebuilt magisk flash option from recovery, set value to "true".
+# Ensure you understood the above note on the default behavior!
+SHRP_EXCLUDE_MAGISK_FLASH := true
